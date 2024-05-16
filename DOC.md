@@ -15,10 +15,10 @@ git init
 git config --global user.email fillop330@gmail.com
 git config --global user.name ClearKillah
 
-#Добавление файлов в индекс для отслеживания изменений
+# Добавление файлов в индекс для отслеживания изменений
 git add DOC.md Main.py Redme.md
 
-#Проверьте содержимое директории docs (если такая существует):
+# Проверьте содержимое директории docs (если такая существует):
 ```
 cd docs
 ls
