@@ -1,0 +1,129 @@
+Вариант 11, (18, 15)
+
+Задача №1: Загрузка на github через git bash.
+Данная задача включает в себя создание репозитория на GitHub и загрузку проекта в этот репозиторий с использованием Git Bash.
+#Создание нового репозитория Git
+```
+git init
+```
+#Переход в указанный каталог
+у нас он называется YPI
+![1](https://github.com/ClearKillah/YPI/assets/64082447/ac7cc68b-cea1-4fea-bb4c-9ce160031f78)
+
+#Далее установка глобальной конфигурации для почты и пользователя
+git config --global user.email fillop330@gmail.com
+git config --global user.name ClearKillah
+
+#Добавление файлов в индекс для отслеживания изменений
+git add DOC.md Main.py Redme.md
+
+#Проверьте содержимое директории docs (если такая существует):
+```
+cd docs
+ls
+```
+![2](https://github.com/ClearKillah/YPI/assets/64082447/eaa0561a-2507-4ccc-8a7c-8b580ea0bb60)
+#Запушим в git
+![4](https://github.com/ClearKillah/YPI/assets/64082447/e05d8b06-4a17-438a-a9fe-99fae3e1cf66)
+Создание ветки dev и переключение на неё
+```
+git checkout -b dev
+git push origin dev
+```
+#Создание тега 
+![изображение](https://github.com/ClearKillah/YPI/assets/64082447/e5914a9c-cec4-4f83-9e17-f4388373b889)
+
+#Сделаем первый комит
+![изображение](https://github.com/ClearKillah/YPI/assets/64082447/f505a4c4-76f3-45e0-81a0-ca4fa8f6acdc)
+
+#Переименуем ветку из master в main и добавим проверим добавление уданенного репозитория
+![изображение](https://github.com/ClearKillah/YPI/assets/64082447/f8a31dbe-1a1f-468d-8391-95d54e18d64d)
+
+#Отправка изменений
+Это процесс передачи локально закоммиченных изменений в удаленный репозиторий. Команда git push origin main отправляет изменения из локальной ветки main в ветку main на удаленном сервере origin.
+![изображение](https://github.com/ClearKillah/YPI/assets/64082447/63c58607-9f09-47ba-88a2-b8900544e233)
+
+#Задача №2: Написать функцию, которая принимает аргумент целочисленное число и выводит его представление в восьмеричной и шестнадцатеричной системе исчисления
+Задание
+
+Написать функцию, которая принимает аргумент целочисленное число и выводит его представление в восьмеричной и шестнадцатеричной системе исчисления.
+Решение
+Код программы
+
+```
+def convert_number(number):
+    octal_representation = oct(number)
+    hexadecimal_representation = hex(number)
+    
+    report = f"""
+    Report:
+    --------
+    Input Number: {number}
+    
+    Octal Representation: {octal_representation}
+    Hexadecimal Representation: {hexadecimal_representation}
+    """
+    
+    return report
+
+# Пример использования функции
+number = 12345
+print(convert_number(number))
+```
+##Использование функции:
+        В качестве примера используется число 12345.
+        Вызов функции convert_number с этим числом выводит отчет с его представлениями в различных системах исчисления.
+
+Пример вывода
+
+Запуск приведенного кода для числа 12345 даст следующий отчет:
+![изображение](https://github.com/ClearKillah/YPI/assets/64082447/29542b1f-5df7-4dfc-bfe8-fe3a49dbae82)
+
+#Задача №3: Вывести ФИО и дату рождения, самого младшего и самого старшего студента
+
+Сделал следующий список студентов:
+students = [
+    {'name': 'Иванов Иван Иванович', 'dob': '15.02.2002'},
+    {'name': 'Петров Петр Петрович', 'dob': '23.06.2000'},
+    {'name': 'Сидорова Анна Ивановна', 'dob': '12.05.2001'},
+    {'name': 'Кузнецов Михаил Сергеевич', 'dob': '01.09.1999'}
+
+```
+from datetime import datetime
+
+def find_youngest_and_oldest(students):
+    # Сортировка списка студентов по дате рождения
+    students_sorted = sorted(students, key=lambda x: datetime.strptime(x['dob'], '%d.%m.%Y'))
+    
+    # Самый младший студент
+    youngest = students_sorted[-1]
+    
+    # Самый старший студент
+    oldest = students_sorted[0]
+    
+    report = f"""
+    Report:
+    --------
+    Самый младший студент:
+    ФИО: {youngest['name']}
+    Дата рождения: {youngest['dob']}
+    
+    Самый старший студент:
+    ФИО: {oldest['name']}
+    Дата рождения: {oldest['dob']}
+    """
+    
+    return report
+
+# Пример списка студентов
+students = [
+    {'name': 'Иванов Иван Иванович', 'dob': '15.02.2002'},
+    {'name': 'Петров Петр Петрович', 'dob': '23.06.2000'},
+    {'name': 'Сидорова Анна Ивановна', 'dob': '12.05.2001'},
+    {'name': 'Кузнецов Михаил Сергеевич', 'dob': '01.09.1999'}
+]
+
+print(find_youngest_and_oldest(students))
+```
+![изображение](https://github.com/ClearKillah/YPI/assets/64082447/cfdeb04c-14e3-4dcb-9591-5b867ce8f006)
+
